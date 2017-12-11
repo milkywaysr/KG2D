@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="KGApplication">
+    <Position X="0.75" Y="6.75" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>CAACAAAAAACAAAAAAAAAAAAAAAAAAAIAIAABAAAAAAA=</HashCode>
+      <FileName>KGApplication.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KGDirectX11Shader" Collapsed="true">
+    <Position X="0.75" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EAAAiARAdeAAFAAEAAEKgAEAiACwCABAADAZIAAAQAA=</HashCode>
+      <FileName>KGDirectX11Shader.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KGEngineManager" Collapsed="true">
+    <Position X="5.25" Y="1.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EKAAAAAAAAAAAgAAAAgAAIAACIAAACAAAQAAQAAAEQA=</HashCode>
+      <FileName>KGEngineManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KGPoint" Collapsed="true">
+    <Position X="7.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAAAAAQAABAAAAgAAAABgAAAAAAA=</HashCode>
+      <FileName>KGPoint.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KGScheduler">
+    <Position X="4" Y="5.75" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>IIBAAAAAABAIAAAAIAAAAAAggAIAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>KGScheduler.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KGShaderFactory" Collapsed="true">
+    <Position X="3.25" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAEAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>KGShaderFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KGShaderInterface" Collapsed="true">
+    <Position X="0.75" Y="1.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAABAQAAAAAAAAAAAAAgAAAAAAAAAAAADAAAAAAAAA=</HashCode>
+      <FileName>KGShaderInterface.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KGSize" Collapsed="true">
+    <Position X="7.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAABAAIAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>KGSize.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KGSprite" Collapsed="true">
+    <Position X="0.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AMABABACJACAgADAAAAIAAAAAAAAIAgAAAAIAAAAAAQ=</HashCode>
+      <FileName>KGSprite.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KGTexture" Collapsed="true">
+    <Position X="3" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAIAAAAgAAIABAAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>KGTexture.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KGTimer" Collapsed="true">
+    <Position X="5.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AxAAAAgACAAgBAABAAAAAAACAIQAAAQAAAAAAAAAQQA=</HashCode>
+      <FileName>KGTimer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KGShaderObject" Collapsed="true">
+    <Position X="0.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAACgAEAEAAAAIAAAAAAAAAgAAAAAAAAAAAgA=</HashCode>
+      <FileName>KGShaderObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Tool">
+      <UniqueIdentifier>{1d4f142f-7e31-4696-ac84-4af3d64569c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tool\WICTextureLoader">
+      <UniqueIdentifier>{c1c0e3dd-9854-4293-975c-3c4c02b1739f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="src\KG2DEngine">
+      <UniqueIdentifier>{1b4b91e9-3e57-4232-9eaf-d8c85a571ad5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="targetver.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="KGEngineManager.h">
+      <Filter>src\KG2DEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="KGTimer.h">
+      <Filter>src\KG2DEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="KGScheduler.h">
+      <Filter>src\KG2DEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="KG2d.h">
+      <Filter>src\KG2DEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="d3dx11effect.h">
+      <Filter>src\KG2DEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="KG2DTool.h">
+      <Filter>src\KG2DEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="KGDirectX11Shader.h">
+      <Filter>src\KG2DEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="KGShaderFactory.h">
+      <Filter>src\KG2DEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="KGShaderInterface.h">
+      <Filter>src\KG2DEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="KGPoint.h">
+      <Filter>src\KG2DEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="KGShaderObject.h">
+      <Filter>src\KG2DEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="KGSprite.h">
+      <Filter>src\KG2DEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="KGSize.h">
+      <Filter>src\KG2DEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="KGTexture.h">
+      <Filter>src\KG2DEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="KGCamera.h">
+      <Filter>src\KG2DEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="KGLabel.h">
+      <Filter>src\KG2DEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="KGScene.h">
+      <Filter>src\KG2DEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="KGInput.h">
+      <Filter>src\KG2DEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="KGApplication.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="WICTextureLoader\WICTextureLoader.h">
+      <Filter>Tool\WICTextureLoader</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="WICTextureLoader\WICTextureLoader.cpp">
+      <Filter>Tool\WICTextureLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="KG2d.cpp">
+      <Filter>src\KG2DEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="KG2DTool.cpp">
+      <Filter>src\KG2DEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="KGCamera.cpp">
+      <Filter>src\KG2DEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="KGDirectX11Shader.cpp">
+      <Filter>src\KG2DEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="KGEngineManager.cpp">
+      <Filter>src\KG2DEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="KGInput.cpp">
+      <Filter>src\KG2DEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="KGLabel.cpp">
+      <Filter>src\KG2DEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="KGPoint.cpp">
+      <Filter>src\KG2DEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="KGScene.cpp">
+      <Filter>src\KG2DEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="KGScheduler.cpp">
+      <Filter>src\KG2DEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="KGShaderFactory.cpp">
+      <Filter>src\KG2DEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="KGShaderInterface.cpp">
+      <Filter>src\KG2DEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="KGShaderObject.cpp">
+      <Filter>src\KG2DEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="KGSize.cpp">
+      <Filter>src\KG2DEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="KGSprite.cpp">
+      <Filter>src\KG2DEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="KGTexture.cpp">
+      <Filter>src\KG2DEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="KGTimer.cpp">
+      <Filter>src\KG2DEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="KGWinMain.cpp">
+      <Filter>src\KG2DEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="KGApplication.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="TKJH.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="TKJH.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+    <None Include="fxfile.fx">
+      <Filter>src\KG2DEngine</Filter>
+    </None>
+  </ItemGroup>
+</Project>
