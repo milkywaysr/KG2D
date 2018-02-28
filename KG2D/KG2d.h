@@ -1,5 +1,6 @@
 #pragma once
 #include <memory>
+#include <iostream>
 #include "KGEngineManager.h"
 #include "KGScheduler.h"
 #include "KGShaderInterface.h"

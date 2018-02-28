@@ -22,7 +22,6 @@ void KGShaderObject::SetPosition(KGPoint p)
 
 const KGPoint & KGShaderObject::GetPosition() const
 {
-	// TODO: 在此处插入 return 语句
 	return mPosition;
 }
 

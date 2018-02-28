@@ -89,6 +89,9 @@
     <ClInclude Include="WICTextureLoader\WICTextureLoader.h">
       <Filter>Tool\WICTextureLoader</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WICTextureLoader\WICTextureLoader.cpp">

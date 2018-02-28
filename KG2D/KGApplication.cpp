@@ -2,7 +2,6 @@
 #include "KGApplication.h"
 #include "KGSprite.h"
 #include "KGLabel.h"
-#include "KG2D.h"
 #include "KG2DTool.h"
 
 KGApplication::KGApplication()
@@ -18,7 +17,8 @@ KGApplication::~KGApplication()
 void KGApplication::KGApplicationInit()
 {
 	//ÓÎÏ·³õÊ¼»¯
-	
+	mScene = new KGScene();
+	KG2D::EngineManager->SetCurrentScene(mScene);
 }
 
 void KGApplication::KGApplicationMainLoop()

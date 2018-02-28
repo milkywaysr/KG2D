@@ -8,7 +8,7 @@
 #include "KGLabel.h"
 using namespace std;
 
-//#define KG_SHOW_FPS
+#define KG_SHOW_FPS
 
 struct KGVertex
 {
@@ -70,7 +70,11 @@ KGDirectX11Shader::KGDirectX11Shader(HWND hwnd)
 	sd.Flags = DXGI_SWAP_CHAIN_FLAG_GDI_COMPATIBLE;
 
 	//创建设备和交换链
-	hr = D3D11CreateDeviceAndSwapChain(NULL, D3D_DRIVER_TYPE_HARDWARE, NULL, createDeviceFlags, 0, 0, D3D11_SDK_VERSION, &sd, &mSwapChain, &mDevice, &mFeatureLevel, &mImmediateContext);
+	D3D_FEATURE_LEVEL levels[] = { 
+		D3D_FEATURE_LEVEL_11_0,
+		D3D_FEATURE_LEVEL_11_1 
+	};
+	hr = D3D11CreateDeviceAndSwapChain(NULL, D3D_DRIVER_TYPE_HARDWARE, NULL, createDeviceFlags, levels, 2, D3D11_SDK_VERSION, &sd, &mSwapChain, &mDevice, &mFeatureLevel, &mImmediateContext);
 	HR(hr, "Create SwapChain and Device Faild");
 
 	//create renderTargetView
@@ -130,7 +134,6 @@ KGDirectX11Shader::KGDirectX11Shader(HWND hwnd)
 
 	CreateFX();
 	CreateBuffer();
-	
 }
 
 
@@ -267,7 +270,7 @@ void KGDirectX11Shader::Render(const list<KGShaderObject*>& list, const KGCamera
 		}
 	}
 
-	//渲染文字
+	
 	if (!labelList.empty())
 	{
 		HDC hdc;
@@ -290,13 +293,7 @@ void KGDirectX11Shader::Render(const list<KGShaderObject*>& list, const KGCamera
 				font = CreateFontIndirect(&lFont);
 				HGDIOBJ old = SelectObject(hdc, font);
 				DeleteObject(old);
-				
-				//渲染帧率
-#ifdef KG_SHOW_FPS
-				std::wstring fps_str = std::to_wstring(g_fps);
-				RECT rect = { 0,0,100,100 };
-				DrawText(hdc, fps_str.c_str(), -1, &rect, DT_LEFT);
-#endif
+
 				for (auto tmp : labelList)
 				{
 					const KGColorRGB &labelColor = tmp->GetColor();
@@ -320,6 +317,37 @@ void KGDirectX11Shader::Render(const list<KGShaderObject*>& list, const KGCamera
 		}
 		mImmediateContext->OMSetRenderTargets(1, &mRenderTargetView, mDepthStencilView);
 	}
+	//渲染fps
+#ifdef KG_SHOW_FPS
+	HDC hdc;
+	IDXGISurface1* surface1 = NULL;
+	HRESULT hr = mSwapChain->GetBuffer(0, __uuidof(IDXGISurface1), (void**)&surface1);
+	if (SUCCEEDED(hr))
+	{
+		hr = surface1->GetDC(TRUE, &hdc);
+		if (SUCCEEDED(hr))
+		{
+			//设置字体大小、颜色
+			SetBkMode(hdc, TRANSPARENT);
+			SetTextColor(hdc, RGB(255, 255, 255));
+
+			HFONT font;
+			LOGFONT lFont;
+			memset(&lFont, 0, sizeof(lFont));
+			lFont.lfHeight = 20;
+			lFont.lfWeight = 700;
+			font = CreateFontIndirect(&lFont);
+			HGDIOBJ old = SelectObject(hdc, font);
+			DeleteObject(old);
+
+			std::wstring fps_str = std::to_wstring(g_fps);
+			RECT rect = { 0,0,100,100 };
+			DrawText(hdc, fps_str.c_str(), -1, &rect, DT_LEFT);
+			surface1->ReleaseDC(NULL);
+		}
+		surface1->Release();
+	}
+#endif
 
 	
 	mSwapChain->Present(0, 0);
@@ -344,7 +372,7 @@ KGTexture KGDirectX11Shader::CreateTextureWithFile(wstring &fileName)
 		//加载纹理
 		HRESULT hr;
 		hr = DirectX::CreateWICTextureFromFile(mDevice, fileName.c_str(), (ID3D11Resource**)&tx, &dx11tex.texture, 0);
-		HR(hr, "纹理");
+		HR(hr, "纹理创建失败");
 		
 		//读取纹理大小
 		D3D11_TEXTURE2D_DESC txd;

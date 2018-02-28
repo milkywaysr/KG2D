@@ -73,7 +73,12 @@ void KGEngineManager::KGBeforeEnterMainLoop()
 
 int KGEngineManager::KGCreateWindow()
 {
-	//
+#ifdef _DEBUG
+	AllocConsole();
+	freopen("conout$", "w+t", stdout);
+	KG_LOG("测试");
+#endif
+
 	//创建窗口
 	RECT rc = { 0, 0, 800, 600 };
 	AdjustWindowRectEx(&rc, WS_POPUPWINDOW | WS_CAPTION, FALSE, NULL);
@@ -94,7 +99,7 @@ int KGEngineManager::KGCreateWindow()
 	if (!RegisterClassEx(&wcex))
 		return E_FAIL;
 
-	mHwnd = CreateWindow(L"wcex", L"太空计划", WS_POPUPWINDOW | WS_CAPTION,
+	mHwnd = CreateWindow(L"wcex", L"KG2D", WS_POPUPWINDOW | WS_CAPTION,
 		CW_USEDEFAULT, CW_USEDEFAULT, rc.right-rc.left, rc.bottom - rc.top, NULL, NULL, mInstance, NULL);
 
 	if (!mHwnd)

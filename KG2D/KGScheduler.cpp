@@ -1,3 +1,4 @@
+#include "KG2d.h"
 #include "KGScheduler.h"
 
 
@@ -20,7 +21,7 @@ bool KGScheduler::update(float deltaTime)
 	if (mTimes != 0)
 	{
 		mTotalTime += deltaTime;
-		if (mTotalTime - mFrameTime > 0.0001)
+		if (mTotalTime - mFrameTime > 0.0)
 		{
 			mCallBackFun(mTotalTime);
 			mTotalTime = 0.0f;
