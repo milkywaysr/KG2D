@@ -15,5 +15,6 @@ public:
 	void KGApplicationExit();
 private:
 	KGScene *mScene;
+	KGLabel *mLabel;
 };
 
