@@ -180,7 +180,7 @@ KGDirectX11Shader::~KGDirectX11Shader()
 void KGDirectX11Shader::Render(const list<KGShaderObject*>& list, const KGCamera& camera)
 {
 	//清除渲染缓存和深度缓存
-	float ClearColor[4] = { 0.0f, 0.125f, 0.3f, 1.0f }; //red,green,blue,alpha
+	float ClearColor[4] = { 0.5f, 0.5f, 0.5f, 1.0f }; //red,green,blue,alpha
 	mImmediateContext->ClearRenderTargetView(mRenderTargetView, ClearColor);
 	mImmediateContext->ClearDepthStencilView(mDepthStencilView, D3D11_CLEAR_DEPTH, 1.0f, 0);
 
@@ -270,15 +270,16 @@ void KGDirectX11Shader::Render(const list<KGShaderObject*>& list, const KGCamera
 		}
 	}
 
-	
+#ifndef KG_SHOW_FPS
 	if (!labelList.empty())
 	{
+#endif
 		HDC hdc;
 		IDXGISurface1* surface1 = NULL;
 		HRESULT hr = mSwapChain->GetBuffer(0, __uuidof(IDXGISurface1), (void**)&surface1);
 		if (SUCCEEDED(hr))
 		{
-			hr = surface1->GetDC(TRUE, &hdc);
+			hr = surface1->GetDC(FALSE, &hdc);
 			if (SUCCEEDED(hr))
 			{
 				//设置字体大小、颜色
@@ -288,11 +289,20 @@ void KGDirectX11Shader::Render(const list<KGShaderObject*>& list, const KGCamera
 				HFONT font;
 				LOGFONT lFont;
 				memset(&lFont, 0, sizeof(lFont));
-				lFont.lfHeight = 40;
 				lFont.lfWeight = 700;
+				
+
+#ifdef KG_SHOW_FPS
+				//绘制fps
+				lFont.lfHeight = 20;
 				font = CreateFontIndirect(&lFont);
 				HGDIOBJ old = SelectObject(hdc, font);
 				DeleteObject(old);
+
+				std::wstring fps_str = std::to_wstring(g_fps);
+				RECT rect = { 0,0,100,100 };
+				DrawText(hdc, fps_str.c_str(), -1, &rect, DT_LEFT);
+#endif
 
 				for (auto tmp : labelList)
 				{
@@ -310,46 +320,15 @@ void KGDirectX11Shader::Render(const list<KGShaderObject*>& list, const KGCamera
 
 					DrawText(hdc, tmp->GetLabel().c_str(), -1, &r, DT_LEFT | DT_WORDBREAK);
 				}
-
+				DeleteObject(font);
 				surface1->ReleaseDC(NULL);
 			}
 			surface1->Release();
+			mImmediateContext->OMSetRenderTargets(1, &mRenderTargetView, mDepthStencilView);
 		}
-		mImmediateContext->OMSetRenderTargets(1, &mRenderTargetView, mDepthStencilView);
-	}
-	//渲染fps
-#ifdef KG_SHOW_FPS
-	HDC hdc;
-	IDXGISurface1* surface1 = NULL;
-	HRESULT hr = mSwapChain->GetBuffer(0, __uuidof(IDXGISurface1), (void**)&surface1);
-	if (SUCCEEDED(hr))
-	{
-		hr = surface1->GetDC(TRUE, &hdc);
-		if (SUCCEEDED(hr))
-		{
-			//设置字体大小、颜色
-			SetBkMode(hdc, TRANSPARENT);
-			SetTextColor(hdc, RGB(255, 255, 255));
-
-			HFONT font;
-			LOGFONT lFont;
-			memset(&lFont, 0, sizeof(lFont));
-			lFont.lfHeight = 20;
-			lFont.lfWeight = 700;
-			font = CreateFontIndirect(&lFont);
-			HGDIOBJ old = SelectObject(hdc, font);
-			DeleteObject(old);
-
-			std::wstring fps_str = std::to_wstring(g_fps);
-			RECT rect = { 0,0,100,100 };
-			DrawText(hdc, fps_str.c_str(), -1, &rect, DT_LEFT);
-			surface1->ReleaseDC(NULL);
-		}
-		surface1->Release();
+#ifndef KG_SHOW_FPS
 	}
 #endif
-
-	
 	mSwapChain->Present(0, 0);
 }
 
@@ -422,7 +401,7 @@ KGSize KGDirectX11Shader::CalculateLabelSize(wstring & label, float fontSize, KG
 			HGDIOBJ old = SelectObject(hdc, font);
 			DeleteObject(old);
 			DrawText(hdc, label.c_str(), -1, &rect, DT_LEFT | DT_CALCRECT | DT_WORDBREAK);
-			
+			DeleteObject(font);
 			surface1->ReleaseDC(NULL);
 		}
 		surface1->Release();

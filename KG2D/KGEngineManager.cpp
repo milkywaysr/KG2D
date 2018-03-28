@@ -55,7 +55,15 @@ void KGEngineManager::KGMainLoop(float deltaTime)
 {
 	KG2D::Input->UpdateDevices();
 	mApplication->KGApplicationMainLoop();
-	g_fps = 1.0 / deltaTime;
+	static float totalTime = 0;
+	static int fpsCount = 0;
+	totalTime += deltaTime;
+	fpsCount++;
+	if (totalTime >= 1.0) {
+		g_fps = fpsCount;
+		totalTime = 0;
+		fpsCount = 0;
+	}
 	if (mCurrentScene)
 	{
 		mCurrentScene->Update(deltaTime);
