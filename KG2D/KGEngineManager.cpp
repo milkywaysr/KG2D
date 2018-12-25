@@ -97,10 +97,10 @@ int KGEngineManager::KGCreateWindow()
 	wcex.cbClsExtra = NULL;
 	wcex.cbWndExtra = NULL;
 	wcex.hInstance = mInstance;
-	wcex.hIcon = LoadIcon(NULL, IDI_APPLICATION);
-	wcex.hCursor = LoadCursor(NULL, IDC_ARROW);
+	wcex.hIcon = LoadIcon(nullptr, IDI_APPLICATION);
+	wcex.hCursor = LoadCursor(nullptr, IDC_ARROW);
 	wcex.hbrBackground = (HBRUSH)COLOR_BACKGROUND;
-	wcex.lpszMenuName = NULL;
+	wcex.lpszMenuName = nullptr;
 	wcex.lpszClassName = L"wcex";
 	wcex.hIconSm = NULL;
 

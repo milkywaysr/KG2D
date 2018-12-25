@@ -71,8 +71,8 @@ KGDirectX11Shader::KGDirectX11Shader(HWND hwnd)
 
 	//创建设备和交换链
 	D3D_FEATURE_LEVEL levels[] = { 
-		D3D_FEATURE_LEVEL_11_0,
-		D3D_FEATURE_LEVEL_11_1 
+		D3D_FEATURE_LEVEL_11_1,
+		D3D_FEATURE_LEVEL_11_0
 	};
 	hr = D3D11CreateDeviceAndSwapChain(NULL, D3D_DRIVER_TYPE_HARDWARE, NULL, createDeviceFlags, levels, 2, D3D11_SDK_VERSION, &sd, &mSwapChain, &mDevice, &mFeatureLevel, &mImmediateContext);
 	HR(hr, "Create SwapChain and Device Faild");
